@@ -16,7 +16,7 @@ fn find_existing_loader(exe_dir: &Path, names: &[&str]) -> Option<PathBuf> {
 fn main() {
 
     // Define loaders
-    let candidates = ["skse64_loader.exe", "fose_loader.exe", "nvse_loader.exe"];
+    let candidates = ["skse64_loader.exe", "fose_loader.exe", "nvse_loader.exe", "f4se_loader.exe"];
 
     // Get path of our program
     let exe_path: PathBuf = match env::current_exe() {
@@ -44,13 +44,14 @@ fn main() {
             return;
         }
     };
+
     let args: Vec<String> = env::args().skip(1).collect();
 
     let status = Command::new(&loader)
         .args(&args)
         .status()
         .expect("Failed to execute loader");
-    
+
     println!("Exit status: {}", status.code().unwrap_or(-1));
 }
 
