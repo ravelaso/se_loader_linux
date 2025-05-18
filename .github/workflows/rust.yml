@@ -30,6 +30,6 @@ jobs:
       - name: Create GitHub Release and Upload Artifact
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/se_loader_windows.exe
+          files: dist/se_loader_linux.exe
         env:
           GITHUB_TOKEN: ${{ github.token }}
